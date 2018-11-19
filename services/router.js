@@ -5,4 +5,7 @@ const students = require('../controllers/students.js' );
 router.route('/students/:pidm?')
     .get(students.get);
 
-module.exports = router;
+router.route('/getUser') 
+    .get(students.getUser);
+
+    module.exports = router;

@@ -6,6 +6,9 @@ spriden_first_name "first_name"
 from spriden where spriden_change_ind is null
 and lower(spriden_last_name) like '%valdes%'`;
 
+const userQuery = `select user from dual`;
+
+
 async function find(context) {
     let query = baseQuery;
     const binds = {};
@@ -17,4 +20,12 @@ async function find(context) {
     const result = await database.simpleExecute(query,binds);
     return result.rows;
 }
+
+async function showUser(){
+    let query = userQuery;
+    const binds = {};
+    const result = await database.simpleExecute(query,binds);
+    return result.rows;
+}
 module.exports.find = find;
+module.exports.showUser = showUser;
